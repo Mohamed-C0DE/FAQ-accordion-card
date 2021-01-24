@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+
+    <style>
+      html {
+        width: 100%;
+        height: 100vh;
+      }
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: kumbh sans;
+        font-size: 14px;
+      }
+      .main {
+        height: 100vh;
+        background: linear-gradient(
+          360deg,
+          rgba(101, 101, 224, 1) 37%,
+          rgba(175, 103, 224, 1) 100%
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+      }
+      .container {
+        width: 800px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "images content";
+        background-color: #ffffff;
+        border-radius: 20px;
+        height: auto;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0px 60px 70px -60px hsl(238, 29%, 16%);
+      }
+      /* IMAGES */
+      .images {
+        grid-area: images;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
+      .photo {
+        position: relative;
+        z-index: 15;
+      }
+      .photo img {
+        position: absolute;
+        overflow: hidden;
+        z-index: 10;
+        top: -426px;
+        left: -80px;
+      }
+      .box img {
+        position: absolute;
+        z-index: 15;
+        top: 185px;
+        left: -94px;
+      }
+      .pattern {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        height: 100%;
+      }
+      .pattern img {
+        position: absolute;
+        overflow: hidden;
+        z-index: 5;
+        left: -580px;
+        top: -320px;
+      }
+      /* Text */
+      .content {
+        grid-area: content;
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 50px 40px;
+        color: hsl(238, 29%, 16%);
+      }
+      .content-container {
+        margin: 15px 0;
+      }
+      h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 20px 0;
+        color: hsl(237, 12%, 33%);
+      }
+      .text {
+        padding: 20px 0;
+      }
+      .drop-down {
+        float: right;
+        cursor: pointer;
+      }
+      .hidden {
+        visibility: hidden;
+        height: 0;
+      }
+      .bold {
+        font-weight: 700;
+      }
+      .border-bottom {
+        border-bottom: 1px solid hsl(240, 5%, 91%);
+        height: 1px;
+        width: 100%;
+      }
+      /* Media Queries */
+      @media screen and (max-width: 1000px) {
+        * {
+          font-size: 12px;
+        }
+        .main {
+          margin: auto;
+        }
+        .container {
+          grid-template-areas:
+            "images"
+            "content";
+          grid-template-columns: auto;
+          grid-template-rows: auto auto;
+          max-width: 315px;
+          height: auto;
+          margin-top: 80px;
+        }
+        /* Images */
+        .images {
+          grid-area: images;
+          overflow: hidden;
+          height: 100px;
+        }
+        .photo,
+        .pattern,
+        .box {
+          position: absolute;
+          height: 100px;
+        }
+        .photo img {
+          position: absolute;
+          width: 250px;
+          height: auto;
+          left: 28px;
+          top: -114px;
+        }
+        .pattern img {
+          position: absolute;
+          width: 250px;
+          height: auto;
+          left: 28px;
+          top: -145px;
+        }
+        .box img {
+          position: absolute;
+          z-index: 15;
+          width: 95px;
+          height: auto;
+          left: 26px;
+          top: -40px;
+        }
+        /* Text */
+        .content {
+          grid-area: content;
+          padding: 10px 20px;
+        }
+        .content-header {
+          text-align: center;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main">
+      <div class="container">
+        <div class="images">
+          <div class="pattern">
+            <img
+              class="pattern-img"
+              src="images/bg-pattern-desktop.svg"
+              alt=""
+            />
+          </div>
+          <div class="photo">
+            <img src="images/illustration-woman-online-desktop.svg" alt="" />
+          </div>
+          <div class="box">
+            <img src="images/illustration-box-desktop.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="content">
+          <h2 class="content-header">FAQ</h2>
+          <div class="content-container">
+            <div>
+              <p class="text">
+                How many team members can I invite?
+                <span
+                  ><img
+                    class="drop-down"
+                    src="images/icon-arrow-down.svg"
+                    alt=""
+                /></span>
+              </p>
+              <div>
+                <p class="hidden">
+                  You can invite up to 2 additional users on the Free plan.
+                  There is no limit on team members for the Premium plan.
+                </p>
+              </div>
+              <div class="border-bottom"></div>
+            </div>
+
+            <div>
+              <p class="text">
+                What is the maximum file upload size?
+                <span
+                  ><img
+                    class="drop-down"
+                    src="images/icon-arrow-down.svg"
+                    alt=""
+                /></span>
+              </p>
+              <div>
+                <p class="hidden">
+                  No more than 2GB. All files in your account must fit your
+                  allotted storage space.
+                </p>
+              </div>
+              <div class="border-bottom"></div>
+            </div>
+
+            <div>
+              <p class="text">
+                How do I reset my password?
+                <span
+                  ><img
+                    class="drop-down"
+                    src="images/icon-arrow-down.svg"
+                    alt=""
+                /></span>
+              </p>
+              <div>
+                <p class="hidden">
+                  Click “Forgot password” from the login page or “Change
+                  password” from your profile page. A reset link will be emailed
+                  to you.
+                </p>
+              </div>
+              <div class="border-bottom"></div>
+            </div>
+
+            <div>
+              <p class="text">
+                Can I cancel my subscription?
+                <span
+                  ><img
+                    class="drop-down"
+                    src="images/icon-arrow-down.svg"
+                    alt=""
+                /></span>
+              </p>
+              <div>
+                <p class="hidden">
+                  Yes! Send us a message and we’ll process your request no
+                  questions asked.
+                </p>
+              </div>
+              <div class="border-bottom"></div>
+            </div>
+
+            <div>
+              <p class="text">
+                Do you provide additional support?
+                <span
+                  ><img
+                    class="drop-down"
+                    src="images/icon-arrow-down.svg"
+                    alt=""
+                /></span>
+              </p>
+              <div>
+                <p class="hidden">
+                  Chat and email support is available 24/7. Phone lines are open
+                  during normal business hours.
+                </p>
+              </div>
+              <div class="border-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const dropdown = document.querySelectorAll(".drop-down");
+      const hiddenElement = document.querySelectorAll(".hidden");
+      const text = document.querySelectorAll(".text");
+
+      dropdown.forEach(function (el, index) {
+        el.addEventListener("click", function () {
+          hiddenElement.forEach(function (elem, i) {
+            text.forEach(function (element, currentIndex) {
+              if (
+                elem.classList.contains("hidden") &&
+                Number(index) === Number(i)
+              ) {
+                elem.classList.remove("hidden");
+                elem.style.display = "block";
+                elem.style.paddingBottom = "10px";
+              } else {
+                elem.classList.add("hidden");
+                elem.style.paddingBottom = "0";
+              }
+              if (
+                Number(currentIndex) === Number(index) &&
+                !element.classList.contains("bold")
+              ) {
+                element.classList.add("bold");
+              } else {
+                element.classList.remove("bold");
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
